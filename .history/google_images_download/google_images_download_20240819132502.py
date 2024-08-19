@@ -21,9 +21,9 @@ else:  # If the Current Version of Python is 2.x
     from urllib.request import Request, urlopen
     from urllib.request import URLError, HTTPError
     from urllib import quote
-    import http.client
-    from http.client import IncompleteRead, BadStatusLine
-    http.client._MAXHEADERS = 1000
+    import httplib
+    from httplib import IncompleteRead, BadStatusLine
+    httplib._MAXHEADERS = 1000
 import time  # Importing the time library to check the time of code execution
 import os
 import argparse
@@ -147,9 +147,9 @@ class googleimagesdownload:
             try:
                 headers = {}
                 headers['User-Agent'] = "Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.27 Safari/537.17"
-                req = urllib.request.Request(url, headers=headers)
+                req = urllib2.Request(url, headers=headers)
                 try:
-                    response = urllib.request.urlopen(req)
+                    response = urllib2.urlopen(req)
                 except URLError:  # Handling SSL certificate failed
                     context = ssl._create_unverified_context()
                     response = urlopen(req, context=context)
@@ -353,8 +353,8 @@ class googleimagesdownload:
                 headers = {}
                 headers['User-Agent'] = "Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.27 Safari/537.17"
 
-                req1 = urllib.request.Request(searchUrl, headers=headers)
-                resp1 = urllib.request.urlopen(req1)
+                req1 = urllib2.Request(searchUrl, headers=headers)
+                resp1 = urllib2.urlopen(req1)
                 content = str(resp1.read())
                 l1 = content.find('AMhZZ')
                 l2 = content.find('&', l1)
@@ -362,7 +362,7 @@ class googleimagesdownload:
 
                 newurl = "https://www.google.com/search?tbs=sbi:" + urll + "&site=search&sa=X"
                 req2 = urllib.request.Request(newurl, headers=headers)
-                resp2 = urllib.request.urlopen(req2)
+                resp2 = urllib2.urlopen(req2)
                 l3 = content.find('/search?sa=X&amp;q=')
                 l4 = content.find(';', l3 + 19)
                 urll2 = content[l3 + 19:l4]
