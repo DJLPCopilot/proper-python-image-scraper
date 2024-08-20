@@ -81,11 +81,6 @@ class googleimagesdownload:
             if img_url and img_url.startswith('http'):
                 image_urls.append(img_url)
 
-        # Log the extracted URLs to a file
-        url_log_path = os.path.join(main_directory, dir_name, "extracted_urls.txt")
-        with open(url_log_path, "w") as url_log_file:
-            url_log_file.write("\n".join(image_urls))
-
         print(f"Found {len(image_urls)} images for '{dir_name}'")
         if not image_urls:
             print(f"No images found for {dir_name}. Skipping...")

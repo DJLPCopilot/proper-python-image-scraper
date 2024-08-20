@@ -1,0 +1,6 @@
+Failed to download 5 images for search term: space hopper ball
+Failed to download 5 images for search term:  space hopper animal
+Failed to download 5 images for search term:  space hopper ball with person
+Failed to download 5 images for search term:  space hopper animal with person
+Failed to download 5 images for search term:  space hopper ball without person
+Failed to download 5 images for search term:  space hopper animal without person
